@@ -19,4 +19,8 @@ public class PedidoRepository {
         return pedido;
     }
 
+    public List<Pedido> lista() {
+        return pedidos;
+    }
+
 }

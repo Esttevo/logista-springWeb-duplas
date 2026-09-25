@@ -50,7 +50,7 @@ public class MotoristaService {
      * @param motorista clienteRequest
      * @return {@link MotoristaResponseDTO}
      */
-    public MotoristaResponseDTO toResponse(Motorista motorista){
+    private MotoristaResponseDTO toResponse(Motorista motorista){
         return new MotoristaResponseDTO(
                 motorista.getId(),
                 motorista.getNome(),
@@ -67,7 +67,7 @@ public class MotoristaService {
      * @param motoristaRequestDTO clienteRequest
      * @return {@link Cliente}
      */
-    public Motorista toEntity (MotoristaRequestDTO motoristaRequestDTO){
+    private Motorista toEntity (MotoristaRequestDTO motoristaRequestDTO){
         Motorista motorista = new Motorista();
         motorista.setNome(motoristaRequestDTO.nome());
         motorista.setCpf(motoristaRequestDTO.cpf());

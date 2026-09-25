@@ -116,7 +116,7 @@ public class ClienteService {
      * @return {@link ClienteResponseDTO}
      */
 
-    public ClienteResponseDTO toResponse(Cliente cliente){
+    private ClienteResponseDTO toResponse(Cliente cliente){
         return new ClienteResponseDTO(
                 cliente.getId(),
                 cliente.getNome(),
@@ -134,7 +134,7 @@ public class ClienteService {
      * @param requestDTO motoristaRequest
      * @return {@link Cliente}
      */
-    public Cliente toEntity(ClienteRequestDTO requestDTO){
+    private Cliente toEntity(ClienteRequestDTO requestDTO){
         Cliente cliente = new Cliente();
         cliente.setNome(requestDTO.nome());
         cliente.setCpf(requestDTO.cpf());

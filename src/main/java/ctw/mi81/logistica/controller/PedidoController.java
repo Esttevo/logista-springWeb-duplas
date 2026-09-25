@@ -3,14 +3,14 @@ package ctw.mi81.logistica.controller;
 import ctw.mi81.logistica.dto.PedidoRequestDTO;
 import ctw.mi81.logistica.dto.PedidoResponseDTO;
 import ctw.mi81.logistica.service.PedidoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  /**
@@ -34,7 +34,55 @@ public class PedidoController {
         this.service = service;
     }
 
-    public ResponseEntity<PedidoResponseDTO> create (@RequestBody @Valid PedidoRequestDTO pedidoRequestDTO) {
+    /**
+     * Metodo de criar Pedido
+     * @param pedidoRequestDTO
+     * @return {@link ResponseEntity<PedidoResponseDTO}
+     */
+
+    @Operation(
+            summary = "Criar pedido",
+            description = "Cria um Pedido novo"
+    )
+    @ApiResponses ({
+            @ApiResponse (
+                    responseCode = "201",
+                    description = "Pedido criado com sucesso"
+            ),
+            @ApiResponse (
+                    responseCode = "404",
+                    description = "Erro ao criar pedido"
+            )
+    })
+    @PostMapping
+    public ResponseEntity<PedidoResponseDTO> criar (@RequestBody @Valid PedidoRequestDTO pedidoRequestDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.criar(pedidoRequestDTO));
+    }
+
+    /**
+     * Metodo de cancelar pedido
+     * @param id Do pedido que vai ser cancelado
+     * @return {@link ResponseEntity<PedidoResponseDTO>}
+     */
+
+    @Operation (
+            summary = "Cancelar pedido",
+            description = "Cancela o pedido a partir do id passado"
+    )
+    @ApiResponses ({
+            @ApiResponse (
+                    responseCode = "200",
+                    description = "Pedido cancelado com sucesso"
+            ),
+            @ApiResponse (
+                    responseCode = "404",
+                    description = "Erro ao cancelar Pedido"
+            )
+    })
+
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<PedidoResponseDTO> cancelarPedido(@PathVariable Long id) {
+        return ResponseEntity.ok().body(service.cancelarPedido(id));
     }
 }
