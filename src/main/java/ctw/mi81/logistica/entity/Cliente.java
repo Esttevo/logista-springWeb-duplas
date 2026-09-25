@@ -6,14 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+/**
+ * Entidade que representa cliente dentro do sistema
+ */
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-
-public class Cliente {
-
+public class Cliente
+{
         private Long id;
         private String nome;
         private String cpf;
@@ -21,6 +23,4 @@ public class Cliente {
         private String endereco;
         private String cidade;
         private String estado;
-
-
 }
