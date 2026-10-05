@@ -1,9 +1,10 @@
 package ctw.mi81.logistica.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
-
+@Schema(description = "Dados do pedido pedidos pela api")
 public record PedidoRequestDTO(
         @NotNull (message = "ID do cliente nao pode ser nulo")
         @Positive (message = "Id do cliente nao pode ser negativo")

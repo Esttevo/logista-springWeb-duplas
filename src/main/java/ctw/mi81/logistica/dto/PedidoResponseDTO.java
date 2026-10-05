@@ -3,6 +3,7 @@ package ctw.mi81.logistica.dto;
 import ctw.mi81.logistica.entity.StatusPedido;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+@Schema(description = "Dados do pedido retornados pela api")
 public record PedidoResponseDTO(
         @Schema( description = "Id do peidido", example = "1")
         Long id,
