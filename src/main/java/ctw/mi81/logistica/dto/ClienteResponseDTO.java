@@ -13,7 +13,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @param estado Estado do cliente
  */
 
-
+@Schema (description = "Dados do cliente retornados pela api")
 public record ClienteResponseDTO(
         @Schema( description = "Id do cliente", example = "1")
         Long id,

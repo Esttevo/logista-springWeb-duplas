@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Repositorio reponsavel pelo acesso dos dados do cliente
+ */
 
 @Repository
 
@@ -24,6 +27,10 @@ public class ClienteRepository {
         cliente.setId(++id);
         clientes.add(cliente);
         return cliente;
+    }
+
+    public void deletar(Cliente cliente) {
+        clientes.remove(cliente);
     }
 
 }

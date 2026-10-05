@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @param mensagemErro Mensagem especfica do que gerou o erro
  * @param URI URI de request do erro
  */
+
+@Schema (description = "formato em que o erro é devolvido")
 public record ErroResponseDTO(
         @Schema(
                 description = "Codigo do erro",
